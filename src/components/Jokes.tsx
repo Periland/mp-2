@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Joke} from "../interfaces/Jokes.ts";
 import SingleJoke from "./SingleJoke";
 
-const AllCharsDiv=styled.div`
+const AllJokesDiv=styled.div`
     display: flex;
     flex-flow: row wrap;    
     justify-content: space-evenly;
@@ -13,7 +13,7 @@ export default function Jokes(props : {data:Joke[] } ){
     console.log("Jokes.tsx");
     console.log(props.data);
     return (
-        <AllCharsDiv>
+        <AllJokesDiv>
             {
                 props.data.map((j: Joke) => 
                     <SingleJoke
@@ -25,6 +25,6 @@ export default function Jokes(props : {data:Joke[] } ){
                     />
                 )
             }
-        </AllCharsDiv>
+        </AllJokesDiv>
     );
 }

@@ -6,7 +6,7 @@ import Jokes from './components/Jokes';
 
 
 const ParentDiv=styled.div`
-  width: 80vw;
+  width: 100%;
   margin: auto;
 `;
 
