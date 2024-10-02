@@ -16,7 +16,8 @@ export default function App() {
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
-      const rawData = await fetch("https://official-joke-api.appspot.com/jokes/ten");
+      mode: 'no-cors'
+      const rawData = await fetch("https://official-joke-api.appspot.com/jokes/random/9");
       const results: Joke[] = await rawData.json();
       setData(results);
     }
@@ -25,9 +26,13 @@ export default function App() {
         .catch((e: Error) => console.log("There was an error: " + e));
   }, []);
 
+  function newJokes(){
+    window.location.reload();
+  }
+
   return (
     <ParentDiv>
-        <h1> Hello World </h1>
+      <button onClick={newJokes}>New Jokes</button>
         <Jokes data={data}/>
    </ParentDiv>
   )
