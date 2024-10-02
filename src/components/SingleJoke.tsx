@@ -11,7 +11,7 @@ const SingleJokeDiv=styled.div<{status: string, color: string}>`
     margin: 1%;
     background-color: ${(props)=>(props.status === "general" ? 'purple' : props.color)};
     color: white;
-    border: 15px darkgoldenrod solid;
+    border: 10px darkgoldenrod solid;
     font: small-caps bold calc(2px + 1vw) Roboto, sans-serif;
     text-align: center;
 `;
