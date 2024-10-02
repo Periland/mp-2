@@ -8,7 +8,6 @@ import Jokes from './components/Jokes';
 const ParentDiv=styled.div`
   width: 80vw;
   margin: auto;
-  border: 5px darkgoldenrod solid;
 `;
 
 export default function App() {
@@ -16,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
-      mode: 'no-cors'
+      mode: 'no-cors';
       const rawData = await fetch("https://official-joke-api.appspot.com/jokes/random/9");
       const results: Joke[] = await rawData.json();
       setData(results);
@@ -30,9 +29,12 @@ export default function App() {
     window.location.reload();
   }
 
+  const cta = <h3 style={{color: 'black'}}>Click on a joke to reveal the punch line!</h3>;
+
   return (
     <ParentDiv>
-      <button onClick={newJokes}>New Jokes</button>
+        <button onClick={newJokes}><h1>New Jokes</h1></button>
+        {cta}
         <Jokes data={data}/>
    </ParentDiv>
   )

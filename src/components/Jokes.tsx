@@ -6,7 +6,7 @@ const AllCharsDiv=styled.div`
     display: flex;
     flex-flow: row wrap;    
     justify-content: space-evenly;
-    background-color: bisque;
+    background-color: #FFFDD0;
 `;
 
 export default function Jokes(props : {data:Joke[] } ){

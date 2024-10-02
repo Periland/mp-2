@@ -1,27 +1,50 @@
 import styled from 'styled-components';
 import { Joke } from '../interfaces/Jokes';
+import { useState } from 'react';
 
-const SingleCharDiv=styled.div<{status: string}>`
+const SingleJokeDiv=styled.div<{status: string, color: string}>`
     display: flex;
     flex-direction: column;   
     justify-content: center;
-    max-width: 30%;
+    width: 30%;
     padding: 2%;
     margin: 1%;
-    background-color: ${(props)=>(props.status === "Alive" ? 'darkorange' : 'black')};
-    color: ${(props) => (props.status !== "Alive" ? 'white' : 'black')};
-    border: 3px darkred solid;
-    font: italic small-caps bold calc(2px + 1vw) Papyrus, fantasy;
+    background-color: ${(props)=>(props.status === "general" ? 'purple' : props.color)};
+    color: white;
+    border: 15px darkgoldenrod solid;
+    font: small-caps bold calc(2px + 1vw) Roboto, sans-serif;
     text-align: center;
 `;
 
+const PunchDiv=styled.div<{reveal: boolean}>`
+    display: ${(props) => (props.reveal ? 'block' : 'none')};
+    `;
+
 export default function SingleJoke({type, setup, punchline}: Joke){
+    const [show, setShow] = useState(false);
+
+    function changeShow(){
+        setShow(prevShow => !prevShow);
+    }
+    var color = "black";
+
+    if (type === "general") {
+        color = "purple";
+    } else if (type === "programming") {
+        color = "green";
+    } else if (type === "knock-knock") {
+        color = "blue";
+    } else if (type === "dad") {
+        color = "red";
+    }
+
     return(
-        <SingleCharDiv status={type}>
-            <h1>Joke</h1>
-            <h3>{type}</h3>
-            <p>{setup}</p>
-            <p>{punchline}</p>
-        </SingleCharDiv>
+        <SingleJokeDiv status={type} color={color} onClick={changeShow}>
+            <h2>{type}</h2>
+            <h3>{setup}</h3>
+            <PunchDiv reveal={show}>
+                <h3><em>{punchline}</em></h3>
+            </PunchDiv>
+        </SingleJokeDiv>
     )
 }
