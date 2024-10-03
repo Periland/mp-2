@@ -10,6 +10,10 @@ const AllJokesDiv=styled.div`
 `;
 
 export default function Jokes(props : {data:Joke[] } ){
+    /*
+    Component to set up the display styling of all jokes fetched from the API 
+    and pass down the joke data to the child component for rendering
+    */
     console.log("Jokes.tsx");
     console.log(props.data);
     return (

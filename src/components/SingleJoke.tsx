@@ -21,6 +21,11 @@ const PunchDiv=styled.div<{reveal: boolean}>`
     `;
 
 export default function SingleJoke({type, setup, punchline}: Joke){
+    /*
+    Component to set up the display styling of each joke fetched from the API, with data being passed down from the parent component.
+    uses useState hook to toggle the display of the punchline when the joke is clicked, the background color of the joke is determined 
+    by the type of joke.
+    */
     const [show, setShow] = useState(false);
 
     function changeShow(){

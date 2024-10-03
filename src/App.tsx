@@ -11,6 +11,10 @@ const ParentDiv=styled.div`
 `;
 
 export default function App() {
+  /*
+  function used to fetch data from the API and pass it on to child components for 
+  rendering, includesa button to refresh the jokes shown on the page.
+  */
   const [data, setData] = useState<Joke[]>([]);
 
   useEffect(() => {
